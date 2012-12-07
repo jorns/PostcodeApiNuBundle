@@ -1,0 +1,24 @@
+{
+    "name": "jorns/postcodeapinu",
+    "description": "Superfast dutch postalcode api",
+    "keywords": ["postalcode api", "geo"],
+    "homepage": "https://github.com/jorns/PostcodeApiNu",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jorn Oomen",
+            "email": "jorn@freshheads.com",
+            "homepage": "http://freshheads.com/"
+        }
+    ],
+    "require": {
+        "kriswallsmith/buzz": "0.7",
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "PostcodeApiNu": "lib/"
+        }
+    }
+}
