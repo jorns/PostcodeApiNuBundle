@@ -1,0 +1,15 @@
+services:
+    validator.postalcode_nl_api.address:
+        class: FH\Bundle\PostcodeApiNuBundle\Validator\Constraints\AddressValidator
+        arguments:
+            - @postcode_api_nu.service
+        tags:
+            - { name: validator.constraint_validator, alias: postcode_api_nu_address_validator }
+    postcode_api_nu.client:
+        class: PostcodeApiNu\Client
+        argurments:
+            - %postcode_api_nu_key%
+    postcode_api_nu.service:
+        class: PostcodeApiNu\Service
+        argurments:
+            - @postcode_api_nu.client

@@ -1,0 +1,28 @@
+{
+    "name": "jorns/postcodeapinu-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony PostcodeApiNuBundle",
+    "keywords": ["Dutch postalcode api"],
+    "homepage": "http://freshheads.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jorn Oomen",
+            "email": "jorn@freshheads.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3",
+        "jorns/postcodeapinu": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "FH\\Bundle\\PostcodeApiNuBundle": "" }
+    },
+    "repositories": [
+    {
+        "type": "vcs",
+        "url":  "https://github.com/jorns/PostcodeApiNu"
+    }],
+    "target-dir": "FH/Bundle/PostcodeApiNuBundle"
+}
