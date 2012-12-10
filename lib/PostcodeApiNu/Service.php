@@ -43,10 +43,13 @@ class Service
         $response = new Message\Response();
         $this->client->send($request, $response);
 
-        if ($response)
+        if ($response->getStatusCode() != 200)
         {
-            throw new \RuntimeException('Request failed with response code: %s', $response->getStatusCode());
+            echo $request;
+            echo $response;
+            throw new \RuntimeException(sprintf('Request failed with response code: %s', $response->getStatusCode()));
         }
+
 
         return $response->getData();
     }

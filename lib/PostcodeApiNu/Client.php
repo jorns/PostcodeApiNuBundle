@@ -7,7 +7,7 @@ class Client
 {
     protected $apiKey;
 
-    protected $apiHost = 'http://staging.postcode.freshheads.com';
+    protected $apiHost = 'http://http://api.postcodeapi.nu';
 
     public function __construct($apiKey)
     {
