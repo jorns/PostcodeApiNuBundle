@@ -9,6 +9,10 @@ use Symfony\Component\Validator\Constraint;
 class Address extends Constraint
 {
     public $message = 'This provided address with postal code "%postalCode%" and number "%number%" appears to be invalid.';
+    public $postalCodeGetter;
+    public $numberGetter;
+    public $streetSetter;
+    public $citySetter;
 
     /**
      * {@inheritDoc}

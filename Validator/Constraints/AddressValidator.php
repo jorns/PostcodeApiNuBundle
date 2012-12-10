@@ -17,10 +17,27 @@ class AddressValidator extends ConstraintValidator
 
     public function validate($value, Constraint $constraint)
     {
-        var_dump($value);
-        echo __METHOD__;die;
-        if (!preg_match('/^[a-zA-Za0-9]+$/', $value, $matches)) {
-            $this->context->addViolation($constraint->message, array('%string%' => $value));
+        $number = call_user_func(array($value, $constraint->numberGetter));
+        $postalCode = call_user_func(array($value, $constraint->postalCodeGetter));
+        if (null !== $postalCode && null !== $number)
+        {
+            try
+            {
+                $data = $this->postalCodeService->find($postalCode, $number);
+
+                if (isset($constraint->streetSetter, $data->street))
+                {
+                    call_user_func(array($value, $constraint->streetSetter), $data->street);
+                }
+                if (isset($constraint->citySetter, $data->town))
+                {
+                    call_user_func(array($value, $constraint->citySetter), $data->town);
+                }
+            } catch (\RuntimeException $e) {
+                $this->context->addViolation($constraint->message, array('%postalCode%' => $postalCode, '%number%' => $number));
+            }
+        } else {
+            $this->context->addViolation($constraint->message, array('%postalCode%' => $postalCode, '%number%' => $number));
         }
     }
 }
