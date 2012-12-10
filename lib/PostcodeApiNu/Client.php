@@ -7,7 +7,7 @@ class Client
 {
     protected $apiKey;
 
-    protected $apiHost = 'http://http://api.postcodeapi.nu';
+    protected $apiHost = 'http://api.postcodeapi.nu';
 
     public function __construct($apiKey)
     {
@@ -22,3 +22,4 @@ class Client
         return $request;
     }
 }
+

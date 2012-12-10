@@ -16,13 +16,11 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
         try {
             $response = $postalCodeService->find('5041EB', 21);
             $data = $response->getData();
-            $this->assertTrue($data->success);
-            $this->assertTrue($data->resource instanceof \stdClass);
-            $this->assertNotNull($data->resource->street);
-            $this->assertNotNull($data->resource->postcode);
-            $this->assertNotNull($data->resource->town);
-            $this->assertNotNull($data->resource->latitude);
-            $this->assertNotNull($data->resource->longitude);
+            $this->assertNotNull($data->street);
+            $this->assertNotNull($data->postcode);
+            $this->assertNotNull($data->town);
+            $this->assertNotNull($data->latitude);
+            $this->assertNotNull($data->longitude);
         } catch (\exception $e) {
             $this->assertTrue($e instanceof \RuntimeException);
         }
