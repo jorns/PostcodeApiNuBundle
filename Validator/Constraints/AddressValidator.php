@@ -23,7 +23,8 @@ class AddressValidator extends ConstraintValidator
         {
             try
             {
-                $data = $this->postalCodeService->find($postalCode, $number);
+                $postalCode = preg_replace('/\s+/', '', $postalCode);
+                $data = $this->postalCodeService->find($postalCode, trim($number));
 
                 if (isset($constraint->streetSetter, $data->street))
                 {
