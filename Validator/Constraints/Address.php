@@ -13,6 +13,11 @@ class Address extends Constraint
     public $numberGetter;
     public $streetSetter;
     public $citySetter;
+    /**
+     * The property to set validation errors at.
+     * @var string
+     */
+    public $errorProperty;
 
     /**
      * {@inheritDoc}
