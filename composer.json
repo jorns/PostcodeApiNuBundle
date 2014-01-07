@@ -14,7 +14,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.3",
-        "jorns/postcodeapinu": "dev-master"
+        "jorns/postcodeapinu": "~0.1.0"
     },
     "autoload": {
         "psr-0": { "FH\\Bundle\\PostcodeApiNuBundle": "" }
