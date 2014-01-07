@@ -3,13 +3,23 @@ services:
         class: PostcodeApiNu\Client
         arguments:
             - %postcode_api_nu_key%
+
     postcode_api_nu.service:
         class: PostcodeApiNu\Service
         arguments:
             - @postcode_api_nu.client
+
     validator.postalcode_nl_api.address:
         class: FH\Bundle\PostcodeApiNuBundle\Validator\Constraints\AddressValidator
         arguments:
             - @postcode_api_nu.service
         tags:
             - { name: validator.constraint_validator, alias: postcode_api_nu_address_validator }
+
+    form.type.postal_code_geo:
+        class: FH\Bundle\PostcodeApiNuBundle\Form\Type\PostalCodeGeoType
+        arguments:
+            - @postcode_api_nu.service
+        tags:
+            - { name: form.type, alias: postal_code_geo }
+
