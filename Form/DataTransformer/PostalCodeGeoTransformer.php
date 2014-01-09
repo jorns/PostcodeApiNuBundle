@@ -3,21 +3,21 @@
 namespace FH\Bundle\PostcodeApiNuBundle\Form\DataTransformer;
 
 use FH\Bundle\PostcodeApiNuBundle\Model\PostalCodeGeo;
-use PostcodeApiNu\Service as PostcodeApiNuService;
+use PostcodeApiNu\ServiceInterface;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\TransformationFailedException;
 
 class PostalCodeGeoTransformer implements DataTransformerInterface
 {
     /**
-     * @var \FH\Bundle\PostcodeApiNuBundle\Model\PostalCodeGeo
+     * @var \PostcodeApiNu\ServiceInterface
      */
     private $postalCodeService;
 
     /**
-     * @param PostcodeApiNuService $postalCodeService
+     * @param ServiceInterface $postalCodeService
      */
-    public function __construct(PostcodeApiNuService $postalCodeService)
+    public function __construct(ServiceInterface $postalCodeService)
     {
         $this->postalCodeService = $postalCodeService;
     }
@@ -44,7 +44,7 @@ class PostalCodeGeoTransformer implements DataTransformerInterface
             $postalCode->latitude = $location->latitude;
             $postalCode->longitude = $location->longitude;
         } catch (\exception $e) {
-            throw new TransformationFailedException('Postalcode transformation failed');
+            //No further action
         }
 
         return $postalCode;
