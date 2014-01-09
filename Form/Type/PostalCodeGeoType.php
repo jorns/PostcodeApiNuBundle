@@ -6,6 +6,7 @@ use FH\Bundle\PostcodeApiNuBundle\Form\DataTransformer\PostalCodeGeoTransformer;
 use PostcodeApiNu\Service as PostcodeService;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class PostalCodeGeoType extends AbstractType
 {
@@ -29,7 +30,14 @@ class PostalCodeGeoType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->addModelTransformer(new PostalCodeGeoTransformer($this->postcodeApiNuService));
+        $service = isset($options['service']) ? $options['service'] : $this->postcodeApiNuService;
+        $builder->addModelTransformer(new PostalCodeGeoTransformer($service));
+    }
+
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setOptional(['service']);
+        $resolver->setAllowedTypes(['service' => 'PostcodeApiNu\ServiceInterface']);
     }
 
     public function getParent()
