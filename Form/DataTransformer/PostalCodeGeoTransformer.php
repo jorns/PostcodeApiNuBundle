@@ -43,7 +43,7 @@ class PostalCodeGeoTransformer implements DataTransformerInterface
         }
 
         $postalCode = new PostalCodeGeo($postalCode);
-        try{
+        try {
             $location = $this->postalCodeService->find($postalCode->postalCode);
             $postalCode->latitude = $location->latitude;
             $postalCode->longitude = $location->longitude;

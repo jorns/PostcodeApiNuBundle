@@ -17,12 +17,15 @@
         "jorns/postcodeapinu": "~0.1.0"
     },
     "autoload": {
-        "psr-0": { "FH\\Bundle\\PostcodeApiNuBundle": "" }
+        "psr-0": {
+            "FH\\Bundle\\PostcodeApiNuBundle": ""
+        }
     },
     "repositories": [
-    {
-        "type": "vcs",
-        "url":  "git@github.com:jorns/PostcodeApiNu.git"
-    }],
+        {
+            "type": "vcs",
+            "url": "git@github.com:jorns/PostcodeApiNu.git"
+        }
+    ],
     "target-dir": "FH/Bundle/PostcodeApiNuBundle"
 }

@@ -17,7 +17,7 @@ class AddressValidator extends ConstraintValidator
 
     public function validate($value, Constraint $constraint)
     {
-        /** @var $constraint Address  */
+        /** @var $constraint Address */
 
         $number = call_user_func(array($value, $constraint->numberGetter));
         $postalCode = call_user_func(array($value, $constraint->postalCodeGetter));
@@ -43,7 +43,7 @@ class AddressValidator extends ConstraintValidator
 
     protected function addViolationMessage(Constraint $constraint, $postalCode, $number)
     {
-        /** @var $constraint Address  */
+        /** @var $constraint Address */
 
         if ($constraint->errorProperty) {
             $this->context->addViolationAtPath(

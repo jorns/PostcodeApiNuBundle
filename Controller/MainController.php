@@ -13,8 +13,7 @@ class MainController extends Controller
      */
     public function findAddressAction($postalCode, $number)
     {
-        try
-        {
+        try {
             $data = $this->get('postcode_api_nu.service')->find($postalCode, $number);
 
             return new Response(json_encode($data), 200, array('Content-type' => 'text/json'));

@@ -11,6 +11,7 @@ class PostalCode extends Constraint
     public $message = 'This provided postal code "%postalCode%" appears to be invalid.';
 
     public $validatorService = 'postcode_api_nu_postal_code_validator';
+
     /**
      * {@inheritDoc}
      */
