@@ -16,10 +16,16 @@ services:
         tags:
             - { name: validator.constraint_validator, alias: postcode_api_nu_address_validator }
 
+    validator.postalcode_nl_api.postal_code:
+        class: FH\Bundle\PostcodeApiNuBundle\Validator\Constraints\PostalCodeValidator
+        arguments:
+            - @postcode_api_nu.service
+        tags:
+            - { name: validator.constraint_validator, alias: postcode_api_nu_postal_code_validator }
+
     form.type.postal_code_geo:
         class: FH\Bundle\PostcodeApiNuBundle\Form\Type\PostalCodeGeoType
         arguments:
             - @postcode_api_nu.service
         tags:
             - { name: form.type, alias: postal_code_geo }
-

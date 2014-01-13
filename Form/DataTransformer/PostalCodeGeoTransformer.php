@@ -38,6 +38,10 @@ class PostalCodeGeoTransformer implements DataTransformerInterface
      */
     public function reverseTransform($postalCode)
     {
+        if ($postalCode === null) {
+            return null;
+        }
+
         $postalCode = new PostalCodeGeo($postalCode);
         try{
             $location = $this->postalCodeService->find($postalCode->postalCode);

@@ -12,4 +12,9 @@ class PostalCodeGeo
     {
         $this->postalCode = $postalCode;
     }
+
+    public function __toString()
+    {
+        return (string)$this->postalCode;
+    }
 }
