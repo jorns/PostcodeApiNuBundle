@@ -42,6 +42,10 @@ class PostalCodeGeoTransformer implements DataTransformerInterface
             return null;
         }
 
+        if (is_string($postalCode)) {
+            $postalCode = preg_replace('/\s/', '', $postalCode);
+        }
+
         $postalCode = new PostalCodeGeo($postalCode);
         try {
             $location = $this->postalCodeService->find($postalCode->postalCode);
